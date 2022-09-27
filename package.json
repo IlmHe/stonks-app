@@ -30,7 +30,8 @@
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.31.8",
     "prop-types": "^15.8.1",
-    "react-native-safe-area-context": "^4.3.3"
+    "react-native-safe-area-context": "^4.3.3",
+    "react-native-svg": "^13.2.0"
   },
   "private": true
 }

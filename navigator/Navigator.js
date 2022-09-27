@@ -5,12 +5,12 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from '../views/Home';
 import Profile from '../views/Profile';
 import Login from '../views/Login';
-import Stocks from '../views/Stocks'
-import Education from '../views/Education'
-import Portfolio from '../views/Portfolio'
+import Stocks from '../views/Stocks';
+import Education from '../views/Education';
+import Portfolio from '../views/Portfolio';
 import {MainContext} from '../contexts/MainContext';
 import {Icon} from '@rneui/themed';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
 
 const Tab = createMaterialTopTabNavigator();
@@ -19,12 +19,13 @@ const Stack = createNativeStackNavigator();
 
 const TabScreen = () => {
   return (
-    <Tab.Navigator tabBarPosition={"bottom"}>
+    <Tab.Navigator tabBarPosition={'bottom'}
+    >
       <Tab.Screen
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({color}) => <Icon name="home" color={color} />,
+          tabBarIcon: ({color}) => <Icon name="home" color={color}/>,
         }}
       />
       <Tab.Screen
