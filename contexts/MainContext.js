@@ -7,7 +7,7 @@ const MainProvider = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const [update, setUpdate] = useState(true);
-  const [companies, setCompanies] = useState({
+  const [companiesArray, setCompaniesArray] = useState({
     companies: [],
   });
 
@@ -20,8 +20,8 @@ const MainProvider = (props) => {
         setUser,
         update,
         setUpdate,
-        companies,
-        setCompanies,
+        companiesArray,
+        setCompaniesArray,
       }}
     >
       {props.children}

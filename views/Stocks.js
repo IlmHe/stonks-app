@@ -1,22 +1,11 @@
 import {Platform, SafeAreaView, StyleSheet, Text} from 'react-native';
 import PropTypes from 'prop-types';
 import {useStockApi} from '../hooks/ApiHooks';
-import {useEffect} from 'react';
 
 const Stocks = ({navigation}) => {
-  const {getCompanies} = useStockApi();
+  const {companiesArray} = useStockApi();
 
-  const fetchCompanies = () => {
-    try {
-      getCompanies();
-    } catch (error) {
-      console.log('error with fetching firms', error.message);
-    }
-  };
-
-  useEffect(() => {
-    fetchCompanies();
-  }, []);
+  console.log(companiesArray);
 
   return (
     <SafeAreaView style={styles.droidSafeArea}>

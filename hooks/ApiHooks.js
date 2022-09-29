@@ -10,9 +10,12 @@ const useStockApi = () => {
       baseApiUrl + symbolSearchFunc + symbol + '&apikey=' + apiKey
     );
 
-    console.log(res);
     setCompaniesArray(res);
   };
+
+  useEffect(() => {
+    getCompanies();
+  }, []);
 
   return {companiesArray, getCompanies};
 };
