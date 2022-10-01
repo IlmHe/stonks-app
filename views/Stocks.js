@@ -4,8 +4,10 @@ import {useStockApi} from '../hooks/ApiHooks';
 
 const Stocks = ({navigation}) => {
   const {companiesArray} = useStockApi();
+  const {companyArray} = useStockApi();
 
-  console.log(companiesArray);
+
+  console.log(companyArray);
 
   return (
     <SafeAreaView style={styles.droidSafeArea}>
