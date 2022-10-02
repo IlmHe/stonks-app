@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import {useStockApi} from '../hooks/ApiHooks';
 
 const Stocks = ({navigation}) => {
+
   const {companiesArray} = useStockApi();
   const {companyArray} = useStockApi();
 
 
-  console.log(companyArray);
+  // console.log(companyArray);
 
   return (
     <SafeAreaView style={styles.droidSafeArea}>

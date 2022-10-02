@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from '../views/Home';
 import Profile from '../views/Profile';
@@ -60,16 +59,32 @@ const TabScreen = () => {
   );
 };
 
+/*<Stack.Screen name="Single" component={Single} />
+          <Stack.Screen name="MyFiles" component={MyFiles} />
+          <Stack.Screen name="ModifyFile" component={ModifyFile} />*/
+
 const StackScreen = () => {
   const {isLoggedIn} = useContext(MainContext);
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        name="Back"
-        component={TabScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen name="Profile" component={Profile}/>
+      {isLoggedIn ? (
+        <>
+          <Stack.Screen
+            name="Back"
+            component={TabScreen}
+            options={{headerShown: false}}
+          />
+
+        </>
+      ) : (
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{
+            title: 'MyApp',
+          }}
+        />
+      )}
     </Stack.Navigator>
   );
 };
@@ -77,7 +92,7 @@ const StackScreen = () => {
 const Navigator = () => {
   return (
     <NavigationContainer>
-      <TabScreen/>
+      <StackScreen />
     </NavigationContainer>
   );
 };

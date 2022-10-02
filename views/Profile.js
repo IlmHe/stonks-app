@@ -33,21 +33,18 @@ const styles = StyleSheet.create({
     top: 310,
     left: 127,
     position: "absolute",
-    fontFamily: "roboto-regular",
     color: "#121212"
   },
   followers: {
     top: 340,
     left: 127,
     position: "absolute",
-    fontFamily: "roboto-regular",
     color: "#121212"
   },
   loremIpsum: {
     top: 340,
     left: 222,
     position: "absolute",
-    fontFamily: "roboto-regular",
     color: "#121212"
   },
   rect: {
@@ -70,7 +67,6 @@ const styles = StyleSheet.create({
     top: 398,
     left: 153,
     position: "absolute",
-    fontFamily: "roboto-regular",
     color: "#121212"
   }
 });

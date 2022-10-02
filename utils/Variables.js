@@ -5,4 +5,7 @@ const apiKey = API_KEY;
 const symbolSearchFunc = 'SYMBOL_SEARCH&keywords=';
 const timeSeriesDailyFunc = 'TIME_SERIES_DAILY&symbol=';
 
-export {baseApiUrl, apiKey, symbolSearchFunc, timeSeriesDailyFunc};
+const apiUrl = 'https://media.mw.metropolia.fi/wbma/';
+
+
+export {baseApiUrl, apiKey, symbolSearchFunc, timeSeriesDailyFunc, apiUrl};
