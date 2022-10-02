@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 const MainContext = React.createContext({});
 
@@ -7,9 +7,6 @@ const MainProvider = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const [update, setUpdate] = useState(true);
-  const [companiesArray, setCompaniesArray] = useState({
-    companies: [],
-  });
 
   return (
     <MainContext.Provider
@@ -20,8 +17,6 @@ const MainProvider = (props) => {
         setUser,
         update,
         setUpdate,
-        companiesArray,
-        setCompaniesArray,
       }}
     >
       {props.children}
@@ -33,4 +28,4 @@ MainProvider.propTypes = {
   children: PropTypes.node,
 };
 
-export {MainContext, MainProvider};
+export { MainContext, MainProvider };
