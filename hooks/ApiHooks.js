@@ -91,7 +91,6 @@ const useUser = () => {
 
   const getUserById = () => {};
   return {checkUsername, getUserByToken, postUser, getUserById};
-
 };
 
 export {useStockApi, useLogin, useUser};

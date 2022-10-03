@@ -5,7 +5,7 @@ import {useEffect, useState} from 'react';
 
 const Stock = ({route}) => {
   const {getCompany} = useStockApi();
-  const {item} = route.params;
+  const item = route.params;
   const [axis, setAxis] = useState({
     Xaxis: [],
     Yaxis: [],
@@ -41,7 +41,7 @@ const Stock = ({route}) => {
 
   return (
     <SafeAreaView style={styles.droidSafeArea}>
-      <Text>stocks</Text>
+      <Text>{item['2. name']}</Text>
     </SafeAreaView>
   );
 };

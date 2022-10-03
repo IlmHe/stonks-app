@@ -72,7 +72,6 @@ const StackScreen = () => {
             component={TabScreen}
             options={{headerShown: false}}
           />
-
         </>
       ) : (
         <Stack.Screen
