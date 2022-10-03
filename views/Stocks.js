@@ -1,18 +1,39 @@
 import {Platform, SafeAreaView, StyleSheet, Text} from 'react-native';
 import PropTypes from 'prop-types';
 import {useStockApi} from '../hooks/ApiHooks';
+import {useEffect, useState} from 'react';
+import List from '../components/List';
 
 const Stocks = ({navigation}) => {
 
-  const {companiesArray} = useStockApi();
-  const {companyArray} = useStockApi();
+  const {getCompanies} = useStockApi();
+  const [inputText, setInputText] = useState('A');
+  const [companiesArray, setCompaniesArray] = useState([]);
 
+  let inputHandler = (e) => {
+    const toHigher = e.target.value.toUpperCase();
 
-  // console.log(companyArray);
+    setInputText(toHigher);
+  };
+
+  const fetchFirms = async () => {
+    try {
+      const res = await getCompanies(inputText);
+
+      setCompaniesArray(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchFirms();
+  }, []);
+
 
   return (
     <SafeAreaView style={styles.droidSafeArea}>
-      <Text>stocks</Text>
+      <List navigation={navigation} data={companiesArray} />
     </SafeAreaView>
   );
 };

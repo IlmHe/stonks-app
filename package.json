@@ -11,6 +11,7 @@
   "dependencies": {
     "@babel/eslint-parser": "^7.18.9",
     "@react-native-async-storage/async-storage": "^1.17.10",
+    "@rneui/base": "^4.0.0-rc.6",
     "eslint-plugin-react-native": "^4.0.0",
     "expo": "~46.0.9",
     "expo-status-bar": "~1.4.0",
@@ -32,6 +33,8 @@
     "@rneui/themed": "^4.0.0-rc.6",
     "eslint": "8.22.0",
     "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.8",
     "prettier": "^2.7.1",
     "prop-types": "^15.8.1",

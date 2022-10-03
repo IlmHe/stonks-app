@@ -9,29 +9,27 @@ import {
 } from '../utils/Variables';
 
 const useStockApi = () => {
-  const [companiesArray, setCompaniesArray] = useState([]);
-  const [companyArray, setCompanyArray] = useState([]);
-
-  const getCompanies = async (symbol = 'a') => {
+  const getCompanies = async (symbol) => {
     const res = await fetchData(
       baseApiUrl + symbolSearchFunc + symbol + '&apikey=' + apiKey
     );
-    setCompaniesArray(res);
+
+    return res;
   };
 
   const getCompany = async (symbol = 'IBM') => {
     const res = await fetchData(
       baseApiUrl + timeSeriesDailyFunc + symbol + '&apikey=' + apiKey
     );
-    setCompanyArray(res);
+
+    return res;
   };
 
   useEffect(() => {
     getCompanies();
-    getCompany();
   }, []);
 
-  return {companiesArray, companyArray, getCompanies, getCompany};
+  return {getCompanies, getCompany};
 };
 
 const useLogin = () => {
