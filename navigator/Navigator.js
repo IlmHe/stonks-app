@@ -8,7 +8,6 @@ import Stocks from '../views/Stocks';
 import Education from '../views/Education';
 import Portfolio from '../views/Portfolio';
 import Stock from '../views/Stock';
-import Upload from '../views/Upload';
 import {MainContext} from '../contexts/MainContext';
 import {Icon} from '@rneui/themed';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
@@ -52,13 +51,6 @@ const TabScreen = () => {
         component={Profile}
         options={{
           tabBarIcon: ({color}) => <Icon name="person" color={color} />,
-        }}
-      />
-      <Tab.Screen
-        name="Upload"
-        component={Upload}
-        options={{
-          tabBarIcon: ({color}) => <Icon name="cloud-upload" color={color} />,
         }}
       />
     </Tab.Navigator>
