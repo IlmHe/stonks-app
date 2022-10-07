@@ -31,20 +31,20 @@ const styles = StyleSheet.create({
   placeholderName: {
     top: 310,
     left: 127,
-    position: "absolute",
-    color: "#121212"
+    position: 'absolute',
+    color: '#121212',
   },
   followers: {
     top: 340,
     left: 127,
-    position: "absolute",
-    color: "#121212"
+    position: 'absolute',
+    color: '#121212',
   },
   loremIpsum: {
     top: 340,
     left: 222,
-    position: "absolute",
-    color: "#121212"
+    position: 'absolute',
+    color: '#121212',
   },
   rect: {
     top: 460,
@@ -65,9 +65,9 @@ const styles = StyleSheet.create({
   follow2: {
     top: 398,
     left: 153,
-    position: "absolute",
-    color: "#121212"
-  }
+    position: 'absolute',
+    color: '#121212',
+  },
 });
 
 Profile.propTypes = {

@@ -28,6 +28,7 @@ const Stocks = ({navigation}) => {
     <SafeAreaView style={styles.droidSafeArea}>
       <Input
         placeholder="Example: AAPL"
+        leftIcon={{name: 'search'}}
         onChangeText={(text) => setInputText(text)}
         onSubmitEditing={fetchFirms}
       />

@@ -23,34 +23,41 @@ const TabScreen = () => {
         component={Home}
         options={{
           tabBarIcon: ({color}) => <Icon name="home" color={color} />,
+          tabBarShowLabel: false,
         }}
       />
       <Tab.Screen
         name="Stocks"
         component={Stocks}
         options={{
-          tabBarIcon: ({color}) => <Icon name="person" color={color} />,
+          tabBarIcon: ({color}) => (
+            <Icon name="waterfall-chart" color={color} />
+          ),
+          tabBarShowLabel: false,
         }}
       />
       <Tab.Screen
         name="Education"
         component={Education}
         options={{
-          tabBarIcon: ({color}) => <Icon name="person" color={color} />,
+          tabBarIcon: ({color}) => <Icon name="school" color={color} />,
+          tabBarShowLabel: false,
         }}
       />
       <Tab.Screen
         name="Portfolio"
         component={Portfolio}
         options={{
-          tabBarIcon: ({color}) => <Icon name="person" color={color} />,
+          tabBarIcon: ({color}) => <Icon name="pie-chart" color={color} />,
+          tabBarShowLabel: false,
         }}
       />
       <Tab.Screen
         name="Profile"
         component={Profile}
         options={{
-          tabBarIcon: ({color}) => <Icon name="person" color={color} />,
+          tabBarIcon: ({color}) => <Icon name="account-circle" color={color} />,
+          tabBarShowLabel: false,
         }}
       />
     </Tab.Navigator>

@@ -1,6 +1,6 @@
 import {FlatList} from 'react-native';
 import PropTypes from 'prop-types';
-import {ListItem} from '@rneui/themed';
+import {Button, ListItem} from '@rneui/themed';
 
 const List = ({navigation, data}) => {
   return (
@@ -15,9 +15,32 @@ const List = ({navigation, data}) => {
           }}
         >
           <ListItem.Content>
-            <ListItem.Title numberOfLines={1} h5>
+            <ListItem.Title
+              numberOfLines={1}
+              h5
+              style={{fontWeight: 'bold', color: 'black'}}
+            >
               {item['1. symbol']}
             </ListItem.Title>
+            <ListItem.Subtitle h7>{item['2. name']}</ListItem.Subtitle>
+          </ListItem.Content>
+
+          <ListItem.Content right>
+            <Button
+              size="sm"
+              title="SELL"
+              titleStyle={{fontWeight: 'bold'}}
+              buttonStyle={{backgroundColor: '#D2042D'}}
+            />
+          </ListItem.Content>
+
+          <ListItem.Content right>
+            <Button
+              size="sm"
+              title="BUY"
+              titleStyle={{fontWeight: 'bold'}}
+              buttonStyle={{backgroundColor: '#118C4F'}}
+            />
           </ListItem.Content>
         </ListItem>
       )}
