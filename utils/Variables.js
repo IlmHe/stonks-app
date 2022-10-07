@@ -4,8 +4,9 @@ const baseApiUrl = 'https://www.alphavantage.co/query?function=';
 const apiKey = API_KEY;
 const symbolSearchFunc = 'SYMBOL_SEARCH&keywords=';
 const timeSeriesDailyFunc = 'TIME_SERIES_DAILY&symbol=';
+const applicationTag = 'WH3';
 
 const apiUrl = 'https://media.mw.metropolia.fi/wbma/';
 
 
-export {baseApiUrl, apiKey, symbolSearchFunc, timeSeriesDailyFunc, apiUrl};
+export {baseApiUrl, apiKey, symbolSearchFunc, timeSeriesDailyFunc, apiUrl, applicationTag};
