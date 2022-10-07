@@ -13,11 +13,15 @@ import {LineChart} from 'react-native-chart-kit';
 const screenWidth = Dimensions.get('window').width;
 
 const chartConfig = {
-  backgroundGradientFrom: '#1E2923',
+  backgroundGradientFrom: '#000000',
   backgroundGradientFromOpacity: 0,
-  backgroundGradientTo: '#08130D',
+  backgroundGradientTo: '#2b2e3f',
   backgroundGradientToOpacity: 0.5,
-  color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+  fillShadowGradientFrom: '#c7fe61',
+  fillShadowGradientFromOpacity: 0,
+  fillShadowGradientTo: '#ffffff',
+  fillShadowGradientToOpacity: 0,
+  color: (opacity = 1) => `rgba(199,254,97, ${opacity})`,
   strokeWidth: 2, // optional, default 3
   barPercentage: 0.5,
   useShadowColorFromDataset: false, // optional
@@ -56,25 +60,34 @@ const Stock = ({route}) => {
     parseStockFetch();
   }, []);
 
-  console.log(axis);
-  console.log(item);
-
+ // console.log(axis);
+ // console.log(item);
+  let stockArr = [];
+  axis.Xaxis = axis.Xaxis.slice(0, 7);
+  console.log("TESGINTINGTESGINT", axis.Xaxis);
+  for (let i = 0; i < axis.Xaxis.length; i++) {
+    stockArr[i] = axis.Xaxis[i].slice(-5);
+  }
+  stockArr = stockArr.reverse();
   const chartData = {
-    labels: axis.Xaxis.slice(0, 5),
+    labels: stockArr,
     datasets: [
       {
-        data: axis.Yaxis.slice(0, 5),
-        color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // optional
-        strokeWidth: 2, // optional
+        data: axis.Yaxis.slice(0, 7).reverse(),
+        color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // optional
+        strokeWidth: 3, // optional
+        withDots: false,
+        withInnerLines: false,
+        withOuterLines: false,
+        withVerticalLines: false,
+        withHorizontalLines: false,
       },
     ],
-    legend: ['Rainy Days'], // optional
   };
-
   return (
     <SafeAreaView style={styles.droidSafeArea}>
-      <Text>{item['2. name']}</Text>
-      <LineChart
+      <Text style={styles.title}>{item['2. name']}</Text>
+      <LineChart style={styles.chart}
         data={chartData}
         width={screenWidth}
         height={220}
@@ -87,9 +100,20 @@ const Stock = ({route}) => {
 const styles = StyleSheet.create({
   droidSafeArea: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#2b2e3f',
     paddingTop: Platform.OS === 'android' ? 30 : 0,
   },
+  title: {
+    color: 'white',
+    alignSelf: 'center',
+    fontSize: 25,
+    fontWeight: 'bold',
+    paddingBottom: 30,
+  },
+  chart: {
+    alignSelf: 'center',
+    marginRight: 30,
+  }
 });
 
 Stock.propTypes = {
