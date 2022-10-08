@@ -93,4 +93,28 @@ const useUser = () => {
   return {checkUsername, getUserByToken, postUser, getUserById};
 };
 
-export {useStockApi, useLogin, useUser};
+const useTag = () => {
+  const getFilesByTag = async (tag) => {
+    return await fetchData(apiUrl + 'tags/' + tag);
+  };
+
+  const postTag = async (token, tag) => {
+    const options = {
+      method: 'POST',
+      headers: {
+        'x-access-token': token,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(tag),
+    };
+    try {
+      return await fetchData(apiUrl + 'tags', options);
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+
+  return {getFilesByTag, postTag};
+};
+
+export {useStockApi, useLogin, useUser, useTag};

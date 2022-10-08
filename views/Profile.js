@@ -1,74 +1,64 @@
-import {Platform, StyleSheet, View, SafeAreaView, Text} from 'react-native';
+import {useContext, useEffect, useState} from 'react';
+import {MainContext} from '../contexts/MainContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useTag} from '../hooks/ApiHooks';
+import {mediaUrl} from '../utils/Variables';
+import {Avatar, Button, Card, Icon, ListItem, Text} from '@rneui/themed';
 import PropTypes from 'prop-types';
-import React, {Component} from 'react';
 
-const Profile = (props) => {
-  const {navigation} = props;
+const Profile = ({navigation}) => {
+  const {isLoggedIn, setIsLoggedIn, user} = useContext(MainContext);
+  const [avatar, setAvatar] = useState('https://placekitten.com/640');
+  const {getFilesByTag} = useTag();
+
+  const fetchAvatar = async () => {
+    try {
+      const avatarArray = await getFilesByTag('avatar_' + user.user_id);
+      console.log('avatarArray', user, avatarArray);
+      const avatarFile = avatarArray.pop();
+      setAvatar(mediaUrl + avatarFile.filename);
+    } catch (error) {
+      console.error('fethAvatar', error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchAvatar();
+  }, []);
+
+  console.log('Profile', isLoggedIn);
+
+  const logOut = async () => {
+    try {
+      setIsLoggedIn(false);
+      await AsyncStorage.clear();
+    } catch (error) {
+      console.error('Profile - logout', error);
+    }
+  };
+
   return (
-    <View style={styles.container}>
-      <View style={styles.undefined} />
-      <View style={styles.undefined} />
-      <Text style={styles.placeholderName}>PlaceholderName</Text>
-      <Text style={styles.followers}>Followers</Text>
-      <Text style={styles.loremIpsum}>23</Text>
-      <View style={styles.rect} />
-      <View style={styles.rect2} />
-      <Text style={styles.follow2}>FOLLOW!</Text>
-    </View>
+    <Card>
+      <Card.Title>Full name: {user.full_name}</Card.Title>
+      <Card.Image source={{uri: avatar}} />
+      <ListItem>
+        <Avatar
+          icon={{name: 'contact-mail', type: 'material'}}
+          containerStyle={{backgroundColor: 'darkred'}}
+        />
+        <Text> {user.email}</Text>
+      </ListItem>
+      <ListItem>
+        <Icon name="person" />
+        <Text>
+          User: {user.username} (id: {user.user_id})
+        </Text>
+      </ListItem>
+
+      <Button title="Logout" onPress={logOut} />
+    </Card>
   );
 };
-
-const styles = StyleSheet.create({
-  droidSafeArea: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: Platform.OS === 'android' ? 30 : 0,
-  },
-  container: {
-    flex: 1,
-  },
-  undefined: {},
-  placeholderName: {
-    top: 310,
-    left: 127,
-    position: 'absolute',
-    color: '#121212',
-  },
-  followers: {
-    top: 340,
-    left: 127,
-    position: 'absolute',
-    color: '#121212',
-  },
-  loremIpsum: {
-    top: 340,
-    left: 222,
-    position: 'absolute',
-    color: '#121212',
-  },
-  rect: {
-    top: 460,
-    left: 56,
-    width: 263,
-    height: 190,
-    position: 'absolute',
-    backgroundColor: '#E6E6E6',
-  },
-  rect2: {
-    top: 102,
-    left: 101,
-    width: 173,
-    height: 161,
-    position: 'absolute',
-    backgroundColor: '#E6E6E6',
-  },
-  follow2: {
-    top: 398,
-    left: 153,
-    position: 'absolute',
-    color: '#121212',
-  },
-});
 
 Profile.propTypes = {
   navigation: PropTypes.object,

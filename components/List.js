@@ -28,18 +28,12 @@ const List = ({navigation, data}) => {
           <ListItem.Content right>
             <Button
               size="sm"
-              title="SELL"
-              titleStyle={{fontWeight: 'bold'}}
-              buttonStyle={{backgroundColor: '#D2042D'}}
-            />
-          </ListItem.Content>
-
-          <ListItem.Content right>
-            <Button
-              size="sm"
               title="BUY"
               titleStyle={{fontWeight: 'bold'}}
               buttonStyle={{backgroundColor: '#118C4F'}}
+              onPress={() => {
+                navigation.navigate('StockBuy', item);
+              }}
             />
           </ListItem.Content>
         </ListItem>

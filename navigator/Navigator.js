@@ -8,6 +8,7 @@ import Stocks from '../views/Stocks';
 import Education from '../views/Education';
 import Portfolio from '../views/Portfolio';
 import Stock from '../views/Stock';
+import StockBuy from '../views/StockBuy';
 import {MainContext} from '../contexts/MainContext';
 import {Icon} from '@rneui/themed';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
@@ -91,6 +92,7 @@ const StackScreen = () => {
       )}
       <Stack.Screen name="Stock" component={Stock} />
       <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name={'StockBuy'} component={StockBuy} />
     </Stack.Navigator>
   );
 };

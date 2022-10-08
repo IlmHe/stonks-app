@@ -13,7 +13,6 @@ const Stocks = ({navigation}) => {
   const fetchFirms = async () => {
     try {
       const res = await getCompanies(inputText);
-
       setCompaniesArray(res);
     } catch (error) {
       console.log(error);
@@ -30,7 +29,7 @@ const Stocks = ({navigation}) => {
         placeholder="Example: AAPL"
         leftIcon={{name: 'search'}}
         onChangeText={(text) => setInputText(text)}
-        onSubmitEditing={fetchFirms}
+        onSelectionChange={fetchFirms}
       />
       <List navigation={navigation} data={companiesArray} />
     </SafeAreaView>

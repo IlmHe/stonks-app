@@ -8,26 +8,9 @@ import {
 import PropTypes from 'prop-types';
 import {useStockApi} from '../hooks/ApiHooks';
 import {useEffect, useState} from 'react';
-import {LineChart} from 'react-native-chart-kit';
+import {Button, Input} from '@rneui/themed';
 
-const screenWidth = Dimensions.get('window').width;
-
-const chartConfig = {
-  backgroundGradientFrom: '#000000',
-  backgroundGradientFromOpacity: 0,
-  backgroundGradientTo: '#2b2e3f',
-  backgroundGradientToOpacity: 0.5,
-  fillShadowGradientFrom: '#c7fe61',
-  fillShadowGradientFromOpacity: 0,
-  fillShadowGradientTo: '#ffffff',
-  fillShadowGradientToOpacity: 0,
-  color: (opacity = 1) => `rgba(199,254,97, ${opacity})`,
-  strokeWidth: 2, // optional, default 3
-  barPercentage: 0.5,
-  useShadowColorFromDataset: false, // optional
-};
-
-const Stock = ({route}) => {
+const StockBuy = ({route}) => {
   const {getCompany} = useStockApi();
   const item = route.params;
   const [axis, setAxis] = useState({
@@ -60,37 +43,23 @@ const Stock = ({route}) => {
     parseStockFetch();
   }, []);
 
- // console.log(axis);
- // console.log(item);
   let stockArr = [];
   axis.Xaxis = axis.Xaxis.slice(0, 7);
   console.log("TESGINTINGTESGINT", axis.Xaxis);
   for (let i = 0; i < axis.Xaxis.length; i++) {
     stockArr[i] = axis.Xaxis[i].slice(-5);
   }
-  const chartData = {
-    labels: stockArr.reverse(),
-    datasets: [
-      {
-        data: axis.Yaxis.slice(0, 7).reverse(),
-        color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // optional
-        strokeWidth: 3, // optional
-        withDots: false,
-        withInnerLines: false,
-        withOuterLines: false,
-        withVerticalLines: false,
-        withHorizontalLines: false,
-      },
-    ],
-  };
   return (
     <SafeAreaView style={styles.droidSafeArea}>
       <Text style={styles.title}>{item['2. name']}</Text>
-      <LineChart style={styles.chart}
-        data={chartData}
-        width={screenWidth}
-        height={220}
-        chartConfig={chartConfig}
+      <Input style={styles.input}
+        placeholder="Purchase amount in $ USD"
+      />
+      <Button
+        size="sm"
+        title="BUY"
+        titleStyle={{fontWeight: 'bold'}}
+        buttonStyle={{backgroundColor: '#118C4F'}}
       />
     </SafeAreaView>
   );
@@ -112,12 +81,15 @@ const styles = StyleSheet.create({
   chart: {
     alignSelf: 'center',
     marginRight: 30,
+  },
+  input: {
+    color: 'white',
   }
 });
 
-Stock.propTypes = {
+StockBuy.propTypes = {
   navigation: PropTypes.object,
   route: PropTypes.object,
 };
 
-export default Stock;
+export default StockBuy;
