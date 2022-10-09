@@ -28,6 +28,7 @@ const TabScreen = () => {
           tabBarShowLabel: false,
           tabBarActiveTintColor: '#c7fe61',
           tabBarInactiveTintColor: 'grey',
+          tabBarStyle: {backgroundColor: '#2b2e3f'},
         }}
       />
       <Tab.Screen
@@ -40,6 +41,7 @@ const TabScreen = () => {
           tabBarShowLabel: false,
           tabBarActiveTintColor: '#c7fe61',
           tabBarInactiveTintColor: 'grey',
+          tabBarStyle: {backgroundColor: '#2b2e3f'},
         }}
       />
       <Tab.Screen
@@ -50,6 +52,7 @@ const TabScreen = () => {
           tabBarShowLabel: false,
           tabBarActiveTintColor: '#c7fe61',
           tabBarInactiveTintColor: 'grey',
+          tabBarStyle: {backgroundColor: '#2b2e3f'},
         }}
       />
       <Tab.Screen
@@ -60,6 +63,7 @@ const TabScreen = () => {
           tabBarShowLabel: false,
           tabBarActiveTintColor: '#c7fe61',
           tabBarInactiveTintColor: 'grey',
+          tabBarStyle: {backgroundColor: '#2b2e3f'},
         }}
       />
       <Tab.Screen
@@ -71,6 +75,7 @@ const TabScreen = () => {
           tabBarActiveTintColor: '#c7fe61',
           tabBarInactiveTintColor: 'grey',
           tabBarItemStyle: 'grey',
+          tabBarStyle: {backgroundColor: '#2b2e3f'},
         }}
       />
     </Tab.Navigator>
