@@ -12,6 +12,7 @@ import StockBuy from '../views/StockBuy';
 import {MainContext} from '../contexts/MainContext';
 import {Icon} from '@rneui/themed';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {color} from '@rneui/base';
 
 const Tab = createMaterialTopTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -25,6 +26,8 @@ const TabScreen = () => {
         options={{
           tabBarIcon: ({color}) => <Icon name="home" color={color} />,
           tabBarShowLabel: false,
+          tabBarActiveTintColor: '#c7fe61',
+          tabBarInactiveTintColor: 'grey',
         }}
       />
       <Tab.Screen
@@ -35,6 +38,8 @@ const TabScreen = () => {
             <Icon name="waterfall-chart" color={color} />
           ),
           tabBarShowLabel: false,
+          tabBarActiveTintColor: '#c7fe61',
+          tabBarInactiveTintColor: 'grey',
         }}
       />
       <Tab.Screen
@@ -43,6 +48,8 @@ const TabScreen = () => {
         options={{
           tabBarIcon: ({color}) => <Icon name="school" color={color} />,
           tabBarShowLabel: false,
+          tabBarActiveTintColor: '#c7fe61',
+          tabBarInactiveTintColor: 'grey',
         }}
       />
       <Tab.Screen
@@ -51,6 +58,8 @@ const TabScreen = () => {
         options={{
           tabBarIcon: ({color}) => <Icon name="pie-chart" color={color} />,
           tabBarShowLabel: false,
+          tabBarActiveTintColor: '#c7fe61',
+          tabBarInactiveTintColor: 'grey',
         }}
       />
       <Tab.Screen
@@ -59,6 +68,9 @@ const TabScreen = () => {
         options={{
           tabBarIcon: ({color}) => <Icon name="account-circle" color={color} />,
           tabBarShowLabel: false,
+          tabBarActiveTintColor: '#c7fe61',
+          tabBarInactiveTintColor: 'grey',
+          tabBarItemStyle: 'grey',
         }}
       />
     </Tab.Navigator>

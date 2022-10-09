@@ -60,21 +60,22 @@ const Stock = ({route}) => {
     parseStockFetch();
   }, []);
 
- // console.log(axis);
- // console.log(item);
   let stockArr = [];
   axis.Xaxis = axis.Xaxis.slice(0, 7);
-  console.log("TESGINTINGTESGINT", axis.Xaxis);
+
+  console.log('TESGINTINGTESGINT', axis.Xaxis);
   for (let i = 0; i < axis.Xaxis.length; i++) {
     stockArr[i] = axis.Xaxis[i].slice(-5);
   }
+
+  console.log(stockArr);
   const chartData = {
     labels: stockArr.reverse(),
     datasets: [
       {
         data: axis.Yaxis.slice(0, 7).reverse(),
         color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // optional
-        strokeWidth: 3, // optional
+        strokeWidth: 2, // optional
         withDots: false,
         withInnerLines: false,
         withOuterLines: false,
@@ -83,10 +84,12 @@ const Stock = ({route}) => {
       },
     ],
   };
+
   return (
     <SafeAreaView style={styles.droidSafeArea}>
       <Text style={styles.title}>{item['2. name']}</Text>
-      <LineChart style={styles.chart}
+      <LineChart
+        style={styles.chart}
         data={chartData}
         width={screenWidth}
         height={220}
@@ -112,7 +115,7 @@ const styles = StyleSheet.create({
   chart: {
     alignSelf: 'center',
     marginRight: 30,
-  }
+  },
 });
 
 Stock.propTypes = {

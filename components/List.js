@@ -9,6 +9,7 @@ const List = ({navigation, data}) => {
       keyExtractor={(item, index) => index.toString()}
       renderItem={({item}) => (
         <ListItem
+          containerStyle={{backgroundColor: '#2b2e3f'}}
           bottomDivider
           onPress={() => {
             navigation.navigate('Stock', item);
@@ -18,11 +19,13 @@ const List = ({navigation, data}) => {
             <ListItem.Title
               numberOfLines={1}
               h5
-              style={{fontWeight: 'bold', color: 'black'}}
+              style={{fontWeight: 'bold', color: 'white'}}
             >
               {item['1. symbol']}
             </ListItem.Title>
-            <ListItem.Subtitle h7>{item['2. name']}</ListItem.Subtitle>
+            <ListItem.Subtitle h7 style={{color: 'white'}}>
+              {item['2. name']}
+            </ListItem.Subtitle>
           </ListItem.Content>
 
           <ListItem.Content right>

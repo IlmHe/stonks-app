@@ -27,7 +27,7 @@ const Stocks = ({navigation}) => {
     <SafeAreaView style={styles.droidSafeArea}>
       <Input
         placeholder="Example: AAPL"
-        leftIcon={{name: 'search'}}
+        leftIcon={{name: 'search', color: '#c7fe61'}}
         onChangeText={(text) => setInputText(text)}
         onSelectionChange={fetchFirms}
       />
@@ -39,7 +39,7 @@ const Stocks = ({navigation}) => {
 const styles = StyleSheet.create({
   droidSafeArea: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#2b2e3f',
     paddingTop: Platform.OS === 'android' ? 30 : 0,
   },
 });
