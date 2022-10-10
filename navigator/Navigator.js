@@ -12,7 +12,6 @@ import StockBuy from '../views/StockBuy';
 import {MainContext} from '../contexts/MainContext';
 import {Icon} from '@rneui/themed';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {color} from '@rneui/base';
 
 const Tab = createMaterialTopTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -89,13 +88,21 @@ const TabScreen = () => {
 const StackScreen = () => {
   const {isLoggedIn} = useContext(MainContext);
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        statusBarTranslucent: true,
+        statusBarColor: '#2b2e3f',
+        navigationBarColor: '#191a24',
+      }}
+    >
       {isLoggedIn ? (
         <>
           <Stack.Screen
             name="Back"
             component={TabScreen}
-            options={{headerShown: false}}
+            options={{
+              headerShown: false,
+            }}
           />
         </>
       ) : (

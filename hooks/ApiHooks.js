@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import {fetchData} from '../utils/Http';
 import {
   apiKey,
@@ -32,6 +32,35 @@ const useStockApi = () => {
   return {getCompanies, getCompany};
 };
 
+const useMedia = () => {
+  const postMedia = async (token, data) => {
+    const options = {
+      method: 'POST',
+      headers: {'x-access-token': token},
+      body: data,
+    };
+    try {
+      return await fetchData(apiUrl + 'media', options);
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+
+  const deleteMedia = async (token, fileId) => {
+    const options = {
+      method: 'DELETE',
+      headers: {'x-access-token': token},
+    };
+    try {
+      return await fetchData(apiUrl + 'media/' + fileId, options);
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+
+  return {postMedia, deleteMedia};
+};
+
 const useLogin = () => {
   const postLogin = async (userCredentials) => {
     // user credentials format: {username: 'someUsername', password: 'somePassword'}
@@ -51,6 +80,7 @@ const useLogin = () => {
 
   return {postLogin};
 };
+
 const useUser = () => {
   const checkUsername = async (username) => {
     try {
@@ -117,4 +147,4 @@ const useTag = () => {
   return {getFilesByTag, postTag};
 };
 
-export {useStockApi, useLogin, useUser, useTag};
+export {useStockApi, useMedia, useLogin, useUser, useTag};
