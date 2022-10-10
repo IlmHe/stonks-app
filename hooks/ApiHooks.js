@@ -11,7 +11,7 @@ import {
 const useStockApi = () => {
   const getCompanies = async (symbol) => {
     const res = await fetchData(
-      baseApiUrl + symbolSearchFunc + symbol + '&apikey=' + apiKey
+      baseApiUrl + symbolSearchFunc + symbol + '&apikey=' + apiKey,
     );
 
     return res;
@@ -19,7 +19,7 @@ const useStockApi = () => {
 
   const getCompany = async (symbol = 'IBM') => {
     const res = await fetchData(
-      baseApiUrl + timeSeriesDailyFunc + symbol + '&apikey=' + apiKey
+      baseApiUrl + timeSeriesDailyFunc + symbol + '&apikey=' + apiKey,
     );
 
     return res;
@@ -52,6 +52,7 @@ const useLogin = () => {
   return {postLogin};
 };
 const useUser = () => {
+
   const checkUsername = async (username) => {
     try {
       const result = await fetchData(apiUrl + 'users/username/' + username);
@@ -61,7 +62,6 @@ const useUser = () => {
       console.log('checkUsername() failed', error);
     }
   };
-
   const getUserByToken = async (token) => {
     try {
       const options = {
@@ -73,7 +73,6 @@ const useUser = () => {
       throw new Error(error.message);
     }
   };
-
   const postUser = async (userData) => {
     const options = {
       method: 'POST',
@@ -88,9 +87,33 @@ const useUser = () => {
       throw new Error(error.message);
     }
   };
+  const getAllUsers = async (token) => {
+    const options = {
+      method: 'GET',
+      headers: {'x-access-token': token},
+    };
+    try {
+      const data = await fetchData(apiUrl + 'users', options);
+      const users = [];
+      data.forEach((user) => {
+        users.push(user.username);
+      });
+      return users;
+    } catch (e) {
+      throw new Error(e.message);
+    }
+  };
 
-  const getUserById = () => {};
-  return {checkUsername, getUserByToken, postUser, getUserById};
+  useEffect(() => {
+    getAllUsers();
+  }, []);
+
+  return {
+    checkUsername,
+    getUserByToken,
+    postUser,
+    getAllUsers,
+  };
 };
 
 const useTag = () => {
