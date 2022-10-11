@@ -15,7 +15,7 @@ import {Icon} from '@rneui/themed';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import UserView from '../views/UserView';
 
-import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
+import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
 const Tab = createMaterialTopTabNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -117,10 +117,10 @@ const StackScreen = () => {
         }}
       />
       <Stack.Screen name="Profile" component={Profile} />
-      <Stack.Screen name='Leaderboard' component={Leaderboard} />
-      <Stack.Screen name='UserView' component={UserView} />
+      <Stack.Screen name="Leaderboard" component={Leaderboard} />
+      <Stack.Screen name="User" component={UserView} />
       <Stack.Screen
-        name='StockBuy'
+        name="StockBuy"
         component={StockBuy}
         options={{
           headerTintColor: 'white',
@@ -142,8 +142,8 @@ const Navigator = () => {
 
 const styles = {
   tabNav: {
-    marginBottom: vh(2),
-  }
-}
+    marginBottom: vh(6),
+  },
+};
 
 export default Navigator;
