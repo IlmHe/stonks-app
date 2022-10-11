@@ -90,7 +90,6 @@ const StackScreen = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        statusBarTranslucent: true,
         statusBarColor: '#2b2e3f',
         navigationBarColor: '#191a24',
       }}

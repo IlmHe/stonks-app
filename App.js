@@ -1,4 +1,4 @@
-import {Keyboard, TouchableOpacity} from 'react-native';
+import {Keyboard, TouchableOpacity, StatusBar} from 'react-native';
 import {MainProvider} from './contexts/MainContext';
 import Navigator from './navigator/Navigator';
 import {SafeAreaProvider} from 'react-native-safe-area-context/src/SafeAreaContext';
@@ -6,6 +6,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context/src/SafeAreaConte
 const App = () => {
   return (
     <SafeAreaProvider>
+      <StatusBar barStyle={'light-content'} backgroundColor={'#2b2e3f'} />
       <MainProvider>
         <TouchableOpacity
           onPress={() => Keyboard.dismiss()}
