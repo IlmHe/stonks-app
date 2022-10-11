@@ -89,19 +89,14 @@ const StackScreen = () => {
   const {isLoggedIn} = useContext(MainContext);
   return (
     <Stack.Navigator
-      screenOptions={{
-        statusBarColor: '#2b2e3f',
-        navigationBarColor: '#191a24',
-      }}
+      screenOptions={{statusBarColor: '#2b2e3f', navigationBarColor: '#191a24'}}
     >
       {isLoggedIn ? (
         <>
           <Stack.Screen
             name="Back"
             component={TabScreen}
-            options={{
-              headerShown: false,
-            }}
+            options={{headerShown: false}}
           />
         </>
       ) : (
@@ -113,9 +108,25 @@ const StackScreen = () => {
           }}
         />
       )}
-      <Stack.Screen name="Stock" component={Stock} />
+      <Stack.Screen
+        name="Stock"
+        component={Stock}
+        options={{
+          headerTintColor: 'white',
+          headerStyle: {backgroundColor: '#2b2e3f'},
+          title: 'Commodity analytics',
+        }}
+      />
       <Stack.Screen name="Profile" component={Profile} />
-      <Stack.Screen name={'StockBuy'} component={StockBuy} />
+      <Stack.Screen
+        name={'StockBuy'}
+        component={StockBuy}
+        options={{
+          headerTintColor: 'white',
+          headerStyle: {backgroundColor: '#2b2e3f'},
+          title: 'Place an order',
+        }}
+      />
     </Stack.Navigator>
   );
 };
