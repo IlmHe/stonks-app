@@ -60,9 +60,9 @@ const Stock = ({route}) => {
   }, []);
 
   let stockArr = [];
+  
   axis.Xaxis = axis.Xaxis.slice(0, 7);
-
-  console.log('TESGINTINGTESGINT', axis.Xaxis);
+  
   for (let i = 0; i < axis.Xaxis.length; i++) {
     stockArr[i] = axis.Xaxis[i].slice(-5);
   }
