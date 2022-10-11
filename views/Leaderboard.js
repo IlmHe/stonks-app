@@ -23,7 +23,11 @@ const Home = ({navigation}) => {
     const token = await AsyncStorage.getItem('userToken');
     try {
       const res = await getAllUsers(token);
-      setUsers(res);
+      const userss = [];
+      for (let i = 0; i < res.length; i++) {
+        userss[i] = res[i].username;
+      }
+      setUsers(userss);
     } catch (error) {
       console.log(error);
     }
