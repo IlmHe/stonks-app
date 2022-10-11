@@ -7,6 +7,8 @@ import {useUser} from '../hooks/ApiHooks';
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
 import {Button} from '@rneui/themed';
+import {StyleSheet} from 'react-native';
+import {vw, vh, vmin, vmax} from 'react-native-expo-viewport-units';
 
 
 const Login = ({navigation}) => {
@@ -35,14 +37,14 @@ const Login = ({navigation}) => {
   }, []);
 
   return (
-    <View>
-      {showRegForm ? <RegisterForm /> : <LoginForm />}
-      <Button
-  title={showRegForm ? 'or sign in' : 'Register a new account'}
-  onPress={() => {
-    setShowRegForm(!showRegForm);
-  }}
-  />
+    <View style={styles.btn}>
+      {showRegForm ? <RegisterForm/> : <LoginForm/>}
+      <Button style={styles.btn2}
+              title={showRegForm ? 'or sign in' : 'Register a new account'}
+              onPress={() => {
+                setShowRegForm(!showRegForm);
+              }}
+      />
     </View>
   );
 };
@@ -50,5 +52,16 @@ const Login = ({navigation}) => {
 Login.propTypes = {
   navigation: PropTypes.object,
 };
+
+const styles = StyleSheet.create({
+  btn: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'red',
+
+  },
+});
 
 export default Login;

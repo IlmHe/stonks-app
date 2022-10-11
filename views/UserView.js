@@ -1,29 +1,21 @@
-import {StyleSheet, SafeAreaView, Text} from 'react-native';
-import {useUser} from '../hooks/ApiHooks';
+import {StyleSheet, SafeAreaView, Text, View} from 'react-native';
 import {useEffect} from 'react';
 import PropTypes from 'prop-types';
-import Stock from './Stock';
 
 
-const User = (route) => {
-  const item = route.params;
-  console.log('ITEM ', item);
-  const {getAllUsers} = useUser();
-
+const UserView = (userMedia) => {
+  const item = userMedia.route.params;
   const parseUser = async () => {
     try {
-      const res = await getAllUsers(item['1. symbol']);
-
       return (
         <SafeAreaView style={styles.container}>
-          <Text>we in this piece</Text>
           <Text style={styles.title}>{item}</Text>
+          <View style={styles.text}></View>
         </SafeAreaView>
       );
     } catch (error) {
-      console.log("PARSE ERROR", error);
+      console.log('PARSE ERROR', error);
     }
-    ;
   };
   useEffect(() => {
     parseUser();
@@ -33,16 +25,25 @@ const User = (route) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#ff0000',
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 40,
   },
+  title: {
+    fontSize: 50,
+    fontWeight: 'bold',
+  },
+  text: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#0000ff',
+  }
 });
 
-Stock.propTypes = {
+UserView.propTypes = {
   navigation: PropTypes.object,
   route: PropTypes.object,
 };
 
-export default User;
+export default UserView;

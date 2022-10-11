@@ -10,7 +10,7 @@ const LeaderboardList = ({navigation, data}) => {
       renderItem={({item}) => (
         <Card style={styles.card}>
           <Text onPress={() => {
-            navigation.navigate('User', item);
+            navigation.navigate('UserView', item);
           }} style={styles.text}>{item}</Text>
         </Card>
       )}
