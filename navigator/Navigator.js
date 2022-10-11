@@ -15,12 +15,13 @@ import {Icon} from '@rneui/themed';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import User from '../views/User';
 
+import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
 const Tab = createMaterialTopTabNavigator();
 const Stack = createNativeStackNavigator();
 
 const TabScreen = () => {
   return (
-    <Tab.Navigator tabBarPosition={'bottom'}>
+    <Tab.Navigator tabBarPosition={'bottom'} style={styles.tabNav}>
       <Tab.Screen
         name="Home"
         component={Home}
@@ -138,5 +139,11 @@ const Navigator = () => {
     </NavigationContainer>
   );
 };
+
+const styles = {
+  tabNav: {
+    marginBottom: vh(2),
+  }
+}
 
 export default Navigator;
