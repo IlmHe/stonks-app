@@ -21,6 +21,7 @@ const LoginForm = () => {
       console.log('Button pressed', isLoggedIn);
       const userData = await postLogin(loginCredentials);
       await AsyncStorage.setItem('userToken', userData.token);
+      await AsyncStorage.setItem('user_id', userData.user.email);
       setUser(userData.user);
       setIsLoggedIn(true);
     } catch (error) {

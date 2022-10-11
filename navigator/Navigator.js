@@ -27,6 +27,9 @@ const TabScreen = () => {
         options={{
           tabBarIcon: ({color}) => <Icon name="home" color={color} />,
           tabBarShowLabel: false,
+          tabBarActiveTintColor: '#c7fe61',
+          tabBarInactiveTintColor: 'grey',
+          tabBarStyle: {backgroundColor: '#2b2e3f'},
         }}
       />
       <Tab.Screen
@@ -37,6 +40,9 @@ const TabScreen = () => {
             <Icon name="waterfall-chart" color={color} />
           ),
           tabBarShowLabel: false,
+          tabBarActiveTintColor: '#c7fe61',
+          tabBarInactiveTintColor: 'grey',
+          tabBarStyle: {backgroundColor: '#2b2e3f'},
         }}
       />
       <Tab.Screen
@@ -45,6 +51,9 @@ const TabScreen = () => {
         options={{
           tabBarIcon: ({color}) => <Icon name="school" color={color} />,
           tabBarShowLabel: false,
+          tabBarActiveTintColor: '#c7fe61',
+          tabBarInactiveTintColor: 'grey',
+          tabBarStyle: {backgroundColor: '#2b2e3f'},
         }}
       />
       <Tab.Screen
@@ -53,6 +62,9 @@ const TabScreen = () => {
         options={{
           tabBarIcon: ({color}) => <Icon name="pie-chart" color={color} />,
           tabBarShowLabel: false,
+          tabBarActiveTintColor: '#c7fe61',
+          tabBarInactiveTintColor: 'grey',
+          tabBarStyle: {backgroundColor: '#2b2e3f'},
         }}
       />
       <Tab.Screen
@@ -61,6 +73,10 @@ const TabScreen = () => {
         options={{
           tabBarIcon: ({color}) => <Icon name="account-circle" color={color} />,
           tabBarShowLabel: false,
+          tabBarActiveTintColor: '#c7fe61',
+          tabBarInactiveTintColor: 'grey',
+          tabBarItemStyle: 'grey',
+          tabBarStyle: {backgroundColor: '#2b2e3f'},
         }}
       />
     </Tab.Navigator>
@@ -70,7 +86,9 @@ const TabScreen = () => {
 const StackScreen = () => {
   const {isLoggedIn} = useContext(MainContext);
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{statusBarColor: '#2b2e3f', navigationBarColor: '#191a24'}}
+    >
       {isLoggedIn ? (
         <>
           <Stack.Screen
@@ -88,11 +106,27 @@ const StackScreen = () => {
           }}
         />
       )}
-      <Stack.Screen name="Stock" component={Stock} />
+      <Stack.Screen
+        name="Stock"
+        component={Stock}
+        options={{
+          headerTintColor: 'white',
+          headerStyle: {backgroundColor: '#2b2e3f'},
+          title: 'Commodity analytics',
+        }}
+      />
       <Stack.Screen name="Profile" component={Profile} />
-      <Stack.Screen name='StockBuy' component={StockBuy} />
       <Stack.Screen name='Leaderboard' component={Leaderboard} />
       <Stack.Screen name='User' component={User} />
+      <Stack.Screen
+        name='StockBuy'
+        component={StockBuy}
+        options={{
+          headerTintColor: 'white',
+          headerStyle: {backgroundColor: '#2b2e3f'},
+          title: 'Place an order',
+        }}
+      />
     </Stack.Navigator>
   );
 };
