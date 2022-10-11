@@ -9,9 +9,11 @@ import Education from '../views/Education';
 import Portfolio from '../views/Portfolio';
 import Stock from '../views/Stock';
 import StockBuy from '../views/StockBuy';
+import Leaderboard from '../views/Leaderboard';
 import {MainContext} from '../contexts/MainContext';
 import {Icon} from '@rneui/themed';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import User from '../views/User';
 
 const Tab = createMaterialTopTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -65,10 +67,6 @@ const TabScreen = () => {
   );
 };
 
-/*<Stack.Screen name="Single" component={Single} />
-          <Stack.Screen name="MyFiles" component={MyFiles} />
-          <Stack.Screen name="ModifyFile" component={ModifyFile} />*/
-
 const StackScreen = () => {
   const {isLoggedIn} = useContext(MainContext);
   return (
@@ -92,7 +90,9 @@ const StackScreen = () => {
       )}
       <Stack.Screen name="Stock" component={Stock} />
       <Stack.Screen name="Profile" component={Profile} />
-      <Stack.Screen name={'StockBuy'} component={StockBuy} />
+      <Stack.Screen name='StockBuy' component={StockBuy} />
+      <Stack.Screen name='Leaderboard' component={Leaderboard} />
+      <Stack.Screen name='User' component={User} />
     </Stack.Navigator>
   );
 };
