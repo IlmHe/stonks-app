@@ -17,8 +17,6 @@ const HomeLeaderboardList = ({navigation, data}) => {
     />
   );
 };
-
-
 HomeLeaderboardList.propTypes = {
   navigation: PropTypes.object,
   data: PropTypes.object,

@@ -51,7 +51,7 @@ const Profile = ({navigation}) => {
         User: {user.username} (id: {user.user_id})
       </Text>
       <View style={styles.btn}>
-        <Button title="Logout" onPress={logOut}/>
+        <Button title="Logout" color='#5b752a' onPress={logOut}/>
       </View>
     </View>
   );

@@ -48,17 +48,6 @@ const TabScreen = () => {
         }}
       />
       <Tab.Screen
-        name="Education"
-        component={Education}
-        options={{
-          tabBarIcon: ({ color }) => <Icon name="school" color={color} />,
-          tabBarShowLabel: false,
-          tabBarActiveTintColor: "#c7fe61",
-          tabBarInactiveTintColor: "grey",
-          tabBarStyle: { backgroundColor: "#2b2e3f" },
-        }}
-      />
-      <Tab.Screen
         name="Portfolio"
         component={Portfolio}
         options={{
@@ -151,7 +140,7 @@ const Navigator = () => {
 
 const styles = {
   tabNav: {
-    marginBottom: vh(6),
+    marginBottom: vh(4),
   },
 };
 
