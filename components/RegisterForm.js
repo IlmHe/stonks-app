@@ -1,35 +1,36 @@
-import {Input, Text, Button} from '@rneui/base';
-import {Controller, useForm} from 'react-hook-form';
-import {useUser} from '../hooks/ApiHooks';
-import {Card} from '@rneui/themed';
+import { Input, Text, Button } from "@rneui/themed";
+import { Controller, useForm } from "react-hook-form";
+import { useUser } from "../hooks/ApiHooks";
+import { Card, ThemeProvider } from "@rneui/themed";
+import { theme } from "../utils/Theme";
 
 const RegisterForm = () => {
-  const {checkUsername, postUser} = useUser();
+  const { checkUsername, postUser } = useUser();
   const {
     control,
     handleSubmit,
     getValues,
-    formState: {errors},
+    formState: { errors },
   } = useForm({
-    defaultValues: {username: '', email: '', password: '', full_name: ''},
-    mode: 'onBlur',
+    defaultValues: { username: "", email: "", password: "", full_name: "" },
+    mode: "onBlur",
   });
 
   const register = async (userData) => {
     delete userData.confirmPassword;
-    console.log('register userData', userData);
+    console.log("register userData", userData);
     try {
       const result = await postUser(userData);
-      console.log('registration result', result);
+      console.log("registration result", result);
       // AUTOLOGIN? (postLogin -> save token -> setloggedin to true)
     } catch (error) {
-      console.error('RegisterForm error', error);
+      console.error("RegisterForm error", error);
       // TODO: nofify user about wrong username/password/net error?
     }
   };
 
   return (
-    <Card>
+    <ThemeProvider theme={theme}>
       <Card.Title>Register</Card.Title>
       <Controller
         control={control}
@@ -38,10 +39,10 @@ const RegisterForm = () => {
           minLength: 3,
           validate: async (value) => {
             const available = await checkUsername(value);
-            return available ? true : 'Username not available!';
+            return available ? true : "Username not available!";
           },
         }}
-        render={({field: {onChange, onBlur, value}}) => (
+        render={({ field: { onChange, onBlur, value } }) => (
           <Input
             onBlur={onBlur}
             onChangeText={onChange}
@@ -49,13 +50,13 @@ const RegisterForm = () => {
             placeholder="Username"
             autoCapitalize="none"
             errorMessage={
-              (errors.username?.type === 'required' && (
+              (errors.username?.type === "required" && (
                 <Text>This is required.</Text>
               )) ||
-              (errors.username?.type === 'minLength' && (
+              (errors.username?.type === "minLength" && (
                 <Text>Min 3 chars!</Text>
               )) ||
-              (errors.username?.type === 'validate' && (
+              (errors.username?.type === "validate" && (
                 <Text>{errors.username.message}</Text>
               ))
             }
@@ -67,13 +68,13 @@ const RegisterForm = () => {
       <Controller
         control={control}
         rules={{
-          required: {value: true, message: 'This is required.'},
+          required: { value: true, message: "This is required." },
           pattern: {
             value: /^[a-z0-9.]{1,128}@[a-z0-9.]{5,128}/i,
-            message: 'Must be valid email.',
+            message: "Must be valid email.",
           },
         }}
-        render={({field: {onChange, onBlur, value}}) => (
+        render={({ field: { onChange, onBlur, value } }) => (
           <Input
             onBlur={onBlur}
             onChangeText={onChange}
@@ -89,10 +90,10 @@ const RegisterForm = () => {
       <Controller
         control={control}
         rules={{
-          required: {value: true, message: 'Required'},
-          minLength: {value: 5, message: 'Min length 5 chars.'},
+          required: { value: true, message: "This is required." },
+          minLength: { value: 5, message: "Min length 5 chars." },
         }}
-        render={({field: {onChange, onBlur, value}}) => (
+        render={({ field: { onChange, onBlur, value } }) => (
           <Input
             onBlur={onBlur}
             onChangeText={onChange}
@@ -111,14 +112,14 @@ const RegisterForm = () => {
         control={control}
         rules={{
           validate: (value) => {
-            if (value === getValues('password')) {
+            if (value === getValues("password")) {
               return true;
             } else {
-              return 'Does not match to password.';
+              return "Does not match with password.";
             }
           },
         }}
-        render={({field: {onChange, onBlur, value}}) => (
+        render={({ field: { onChange, onBlur, value } }) => (
           <Input
             onBlur={onBlur}
             onChangeText={onChange}
@@ -141,7 +142,7 @@ const RegisterForm = () => {
           required: false,
           minLength: 3,
         }}
-        render={({field: {onChange, onBlur, value}}) => (
+        render={({ field: { onChange, onBlur, value } }) => (
           <Input
             onBlur={onBlur}
             onChangeText={onChange}
@@ -154,7 +155,7 @@ const RegisterForm = () => {
       />
 
       <Button title="Register!" onPress={handleSubmit(register)} />
-    </Card>
+    </ThemeProvider>
   );
 };
 
