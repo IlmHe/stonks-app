@@ -1,11 +1,12 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { StyleSheet, View } from "react-native";
 import { Input, Button, Text, Card, ThemeProvider } from "@rneui/themed";
 import { useContext } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { StyleSheet } from "react-native";
 import { MainContext } from "../contexts/MainContext";
 import { useLogin } from "../hooks/ApiHooks";
 import { theme } from "../utils/Theme";
+import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 
 const LoginForm = () => {
   const { isLoggedIn, setIsLoggedIn, setUser } = useContext(MainContext);
@@ -82,5 +83,15 @@ const LoginForm = () => {
     </ThemeProvider>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    width: vw(100),
+    height: vh(80),
+    backgroundColor: "#2b2e3f",
+    position: "relative",
+  },
+  container2: {},
+});
 
 export default LoginForm;

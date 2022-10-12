@@ -13,7 +13,7 @@ import Leaderboard from "../views/Leaderboard";
 import { MainContext } from "../contexts/MainContext";
 import { Icon } from "@rneui/themed";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import User from "../views/User";
+import UserView from "../views/UserView";
 
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 const Tab = createMaterialTopTabNavigator();
@@ -126,7 +126,7 @@ const StackScreen = () => {
       />
       <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="Leaderboard" component={Leaderboard} />
-      <Stack.Screen name="User" component={User} />
+      <Stack.Screen name="User" component={UserView} />
       <Stack.Screen
         name="StockBuy"
         component={StockBuy}

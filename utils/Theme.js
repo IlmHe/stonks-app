@@ -9,6 +9,7 @@ const themeForm = createTheme({
       color: "#118C4F",
       buttonStyle: {
         marginBottom: 15,
+        marginTop: 10,
       },
     },
     Card: {

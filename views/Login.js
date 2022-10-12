@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, View } from "react-native";
+import { Platform, SafeAreaView, StyleSheet, View } from "react-native";
 import PropTypes from "prop-types";
 import { useContext, useEffect, useState } from "react";
 import { MainContext } from "../contexts/MainContext";
@@ -63,6 +63,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#2b2e3f",
     paddingTop: Platform.OS === "android" ? 30 : 0,
     paddingBottom: Platform.OS === "android" ? 30 : 0,
+  },
+  btn: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "red",
   },
 });
 
