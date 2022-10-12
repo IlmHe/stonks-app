@@ -13,7 +13,7 @@ const LeaderboardList = ({navigation, data}) => {
             navigation.navigate('UserView', item);
           }} style={styles.text}>{item}<View style={styles.test}><Text
             style={styles.XP}>  XP</Text></View></Text>
-          <CardDivider style={styles.divider}/>
+          <CardDivider/>
         </View>
       )}
     />
@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     marginLeft: '10%',
     fontSize: 20,
     fontWeight: 'bold',
+    marginBottom: 10,
   },
   test: {
     display: 'flex',

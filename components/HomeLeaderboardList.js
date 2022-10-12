@@ -1,6 +1,7 @@
 import {Button, FlatList, StyleSheet, Text, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {Card} from '@rneui/themed';
+import {CardDivider} from '@rneui/base/dist/Card/Card.Divider';
 
 const HomeLeaderboardList = ({navigation, data}) => {
   return (
@@ -8,9 +9,10 @@ const HomeLeaderboardList = ({navigation, data}) => {
       data={data}
       keyExtractor={(item, index) => index.toString()}
       renderItem={({item}) => (
-        <Card style={styles.card}>
+        <View style={styles.card}>
           <Text style={styles.text}>{item}</Text>
-        </Card>
+          <CardDivider/>
+        </View>
       )}
     />
   );
@@ -24,7 +26,11 @@ HomeLeaderboardList.propTypes = {
 
 const styles = StyleSheet.create({
   text: {
-  color: 'black',
+    color: '#c7fe61',
+    marginLeft: '2%',
+    fontSize: 20,
+    alignSelf: 'center',
+    marginBottom: 10,
   },
   card: {
     display: 'flex',
