@@ -6,7 +6,6 @@ import Home from "../views/Home";
 import Profile from "../views/Profile";
 import Login from "../views/Login";
 import Stocks from "../views/Stocks";
-import Education from "../views/Education";
 import Portfolio from "../views/Portfolio";
 import Stock from "../views/Stock";
 import StockBuy from "../views/StockBuy";
