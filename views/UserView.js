@@ -1,48 +1,75 @@
-import {StyleSheet, SafeAreaView, Text, View} from 'react-native';
-import {useEffect} from 'react';
+
+import {StyleSheet, SafeAreaView, Text} from 'react-native';
 import PropTypes from 'prop-types';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useUser} from '../hooks/ApiHooks';
+import {useEffect} from 'react';
+import {mediaUrl} from '../utils/Variables';
+import {Avatar} from '@rneui/themed';
+import {useMedia} from '../hooks/ApiHooks';
 
-
+let imgVar = "";
 const UserView = (userMedia) => {
+  let avatarData = "";
+  const {getAllUsers} = useUser();
+  const {getMediaFile} = useMedia();
   const item = userMedia.route.params;
-  const parseUser = async () => {
+
+  const fetchUserData = async () => {
+    const token = await AsyncStorage.getItem('userToken');
     try {
-      return (
-        <SafeAreaView style={styles.container}>
-          <Text style={styles.title}>{item}</Text>
-          <View style={styles.text}></View>
-        </SafeAreaView>
-      );
+      const res = await getAllUsers(token);
+      for (let i = 0; i < res.length; i++) {
+        if (res[i].username === item) {
+          avatarData = await getMediaFile(res[i].user_id);
+          imgVar = avatarData.thumbnails.w160;
+          break;
+        }
+      }
     } catch (error) {
-      console.log('PARSE ERROR', error);
+      console.log(error);
     }
   };
+
   useEffect(() => {
-    parseUser();
+    fetchUserData();
   }, []);
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>{item}</Text>
+      <Avatar style={styles.avatar}
+        source={{uri: mediaUrl + imgVar}}
+        size="large"
+      />
+    </SafeAreaView>
+  );
 };
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ff0000',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#2b2e3f',
     paddingTop: 40,
+    display: 'flex',
+    flexDirection: 'column',
   },
   title: {
-    fontSize: 50,
+    fontSize: 30,
     fontWeight: 'bold',
+    alignSelf: 'center',
+    color: '#c7fe61',
   },
-  text: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#0000ff',
+  avatar: {
+    width: 200,
+    height: 200,
+    alignSelf: 'center',
+    paddingTop: 20,
   }
 });
 
 UserView.propTypes = {
-  navigation: PropTypes.object,
   route: PropTypes.object,
 };
 

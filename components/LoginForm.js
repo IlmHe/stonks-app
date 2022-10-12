@@ -34,6 +34,7 @@ const LoginForm = () => {
   };
 
   return (
+
     <ThemeProvider theme={theme}>
       <Card.Title>Login</Card.Title>
       <Controller
@@ -81,6 +82,7 @@ const LoginForm = () => {
 
       <Button title="Sign in!" onPress={handleSubmit((data) => logIn(data))} />
     </ThemeProvider>
+
   );
 };
 
@@ -88,10 +90,11 @@ const styles = StyleSheet.create({
   container: {
     width: vw(100),
     height: vh(80),
-    backgroundColor: "#2b2e3f",
-    position: "relative",
+    backgroundColor: '#2b2e3f',
+    position: 'relative',
   },
-  container2: {},
+  container2: {
+  }
 });
 
 export default LoginForm;

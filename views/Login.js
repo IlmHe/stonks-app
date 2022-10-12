@@ -1,3 +1,4 @@
+
 import { Platform, SafeAreaView, StyleSheet, View } from "react-native";
 import PropTypes from "prop-types";
 import { useContext, useEffect, useState } from "react";
@@ -8,6 +9,7 @@ import LoginForm from "../components/LoginForm";
 import RegisterForm from "../components/RegisterForm";
 import { Button, Card, ThemeProvider } from "@rneui/themed";
 import { theme } from "../utils/Theme";
+
 
 const Login = ({ navigation }) => {
   // props is needed for navigation
@@ -76,5 +78,16 @@ const styles = StyleSheet.create({
 Login.propTypes = {
   navigation: PropTypes.object,
 };
+
+const styles = StyleSheet.create({
+  btn: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'red',
+
+  },
+});
 
 export default Login;
