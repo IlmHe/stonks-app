@@ -79,15 +79,4 @@ Login.propTypes = {
   navigation: PropTypes.object,
 };
 
-const styles = StyleSheet.create({
-  btn: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'red',
-
-  },
-});
-
 export default Login;

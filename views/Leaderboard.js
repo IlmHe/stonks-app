@@ -45,8 +45,8 @@ const Home = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.droidSafeArea}>
-      <Input
-        placeholder="Example: Doglover123"
+      <Input style={styles.input}
+        placeholder="Search for users here..."
         leftIcon={{name: 'search'}}
         onChangeText={(text) => setInputText(text)}
         onSelectionChange={userFetch}
@@ -62,6 +62,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#2b2e3f',
     paddingTop: Platform.OS === 'android' ? 30 : 0,
     justifyContent: 'space-between',
+  },
+  input: {
+    color: 'white',
   },
 });
 

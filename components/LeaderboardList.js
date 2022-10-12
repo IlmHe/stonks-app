@@ -1,6 +1,5 @@
 import {FlatList, StyleSheet, Text, View} from 'react-native';
 import PropTypes from 'prop-types';
-import {Card} from '@rneui/themed';
 import {CardDivider} from '@rneui/base/dist/Card/Card.Divider';
 
 const LeaderboardList = ({navigation, data}) => {

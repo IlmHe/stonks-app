@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {Button, FlatList, StyleSheet, Text, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {Card} from '@rneui/themed';
 
@@ -9,9 +9,7 @@ const HomeLeaderboardList = ({navigation, data}) => {
       keyExtractor={(item, index) => index.toString()}
       renderItem={({item}) => (
         <Card style={styles.card}>
-          <Text onPress={() => {
-            navigation.navigate('Leaderboard');
-          }} style={styles.text}>{item}</Text>
+          <Text style={styles.text}>{item}</Text>
         </Card>
       )}
     />
