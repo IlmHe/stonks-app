@@ -11,7 +11,7 @@ import {
 const useStockApi = () => {
   const getCompanies = async (symbol) => {
     const res = await fetchData(
-      baseApiUrl + symbolSearchFunc + symbol + '&apikey=' + apiKey,
+      baseApiUrl + symbolSearchFunc + symbol + '&apikey=' + apiKey
     );
 
     return res;
@@ -19,7 +19,7 @@ const useStockApi = () => {
 
   const getCompany = async (symbol = 'IBM') => {
     const res = await fetchData(
-      baseApiUrl + timeSeriesDailyFunc + symbol + '&apikey=' + apiKey,
+      baseApiUrl + timeSeriesDailyFunc + symbol + '&apikey=' + apiKey
     );
 
     return res;
@@ -63,7 +63,7 @@ const useMedia = () => {
     } catch (error) {
       throw new Error(error.message);
     }
-  }
+  };
 
   return {postMedia, deleteMedia, getMediaFile};
 };
@@ -89,7 +89,6 @@ const useLogin = () => {
 };
 
 const useUser = () => {
-
   const checkUsername = async (username) => {
     try {
       const result = await fetchData(apiUrl + 'users/username/' + username);
@@ -169,7 +168,19 @@ const useTag = () => {
     }
   };
 
-  return {getFilesByTag, postTag};
+  const deleteTag = async (token, tagId) => {
+    const options = {
+      method: 'DELETE',
+      headers: {'x-access-token': token},
+    };
+    try {
+      return await fetchData(apiUrl + 'tags/' + tagId, options);
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+
+  return {getFilesByTag, postTag, deleteTag};
 };
 
 export {useStockApi, useMedia, useLogin, useUser, useTag};
