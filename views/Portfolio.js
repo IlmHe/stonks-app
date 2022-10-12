@@ -20,7 +20,6 @@ const Portfolio = ({navigation}) => {
     const userId = await AsyncStorage.getItem('user_id');
 
     const res = await getFilesByTag(userId);
-    console.log(res);
 
     setStocks([res]);
   };

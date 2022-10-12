@@ -21,7 +21,6 @@ const LoginForm = () => {
 
   const logIn = async (loginCredentials) => {
     try {
-      console.log("Button pressed", isLoggedIn);
       const userData = await postLogin(loginCredentials);
       await AsyncStorage.setItem("userToken", userData.token);
       await AsyncStorage.setItem("user_id", userData.user.email);
@@ -29,7 +28,6 @@ const LoginForm = () => {
       setIsLoggedIn(true);
     } catch (error) {
       console.error("Login - logIn", error);
-      // TODO: nofify user about wrong username/password/net error?
     }
   };
 

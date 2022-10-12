@@ -18,14 +18,10 @@ const RegisterForm = () => {
 
   const register = async (userData) => {
     delete userData.confirmPassword;
-    console.log("register userData", userData);
     try {
       const result = await postUser(userData);
-      console.log("registration result", result);
-      // AUTOLOGIN? (postLogin -> save token -> setloggedin to true)
     } catch (error) {
       console.error("RegisterForm error", error);
-      // TODO: nofify user about wrong username/password/net error?
     }
   };
 

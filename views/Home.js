@@ -18,7 +18,6 @@ import {vh, vw} from 'react-native-expo-viewport-units';
 
 const Home = ({navigation}) => {
   const {user} = useContext(MainContext);
-  console.log('Home', user);
   const {getAllUsers} = useUser();
   const [users, setUsers] = useState({
     email: '',

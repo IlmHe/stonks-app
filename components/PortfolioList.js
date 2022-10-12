@@ -13,9 +13,7 @@ const PortfolioList = ({navigation, data}) => {
       const token = await AsyncStorage.getItem('userToken');
 
       const mediaRes = await deleteMedia(token, item.file_id);
-      console.log(mediaRes);
       const tagRes = await deleteTag(token, item.tag_id);
-      console.log(tagRes);
     } catch (error) {
       console.log(error.message);
     }

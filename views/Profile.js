@@ -26,7 +26,6 @@ const Profile = ({navigation}) => {
     fetchAvatar();
   }, []);
 
-  console.log('Profile', isLoggedIn);
 
   const logOut = async () => {
     try {

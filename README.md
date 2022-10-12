@@ -8,7 +8,9 @@ but it's mainly meant for beginners or people just getting into investing.
 ## Screenshots
 
 ![Login view](https://i.imgur.com/vkNYLO5.png)
+
 Login view: Login and register accounts.
+
 
 ![Register view](https://i.imgur.com/XZSklm3.png)
 Register view: Register account.

@@ -92,7 +92,6 @@ const useUser = () => {
   const checkUsername = async (username) => {
     try {
       const result = await fetchData(apiUrl + 'users/username/' + username);
-      console.log('checkUsername():', result);
       return result.available;
     } catch (error) {
       console.log('checkUsername() failed', error);

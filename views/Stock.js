@@ -63,7 +63,6 @@ const Stock = ({navigation, route}) => {
     stockArr[i] = axis.Xaxis[i].slice(-5);
   }
 
-  console.log(stockArr);
   const chartData = {
     labels: stockArr.reverse(),
     datasets: [

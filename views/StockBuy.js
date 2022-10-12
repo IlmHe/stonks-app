@@ -41,7 +41,6 @@ const StockBuy = ({navigation, route}) => {
     parseStockFetch();
   }, []);
 
-  console.log(price);
   const handleBuy = async () => {
     for (let i = 0; i < amount; i++) {
       const formData = new FormData();
@@ -59,10 +58,8 @@ const StockBuy = ({navigation, route}) => {
         const userId = await AsyncStorage.getItem('user_id');
 
         const res = await postMedia(token, formData);
-        console.log(res);
         const tag = {file_id: res.file_id, tag: userId};
         const tagRes = await postTag(token, tag);
-        console.log(tagRes);
       } catch (error) {
         console.log(error.message);
       }
