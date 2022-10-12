@@ -118,7 +118,7 @@ const StackScreen = () => {
       />
       <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="Leaderboard" component={Leaderboard} />
-      <Stack.Screen name="User" component={UserView} />
+      <Stack.Screen name="UserView" component={UserView} />
       <Stack.Screen
         name="StockBuy"
         component={StockBuy}

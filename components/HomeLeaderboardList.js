@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, Text} from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {Card} from '@rneui/themed';
 
@@ -26,11 +26,12 @@ HomeLeaderboardList.propTypes = {
 
 const styles = StyleSheet.create({
   text: {
-
+  color: 'black',
   },
   card: {
     display: 'flex',
     flexDirection: 'column',
+    padding: 10,
   },
 });
 export default HomeLeaderboardList;
