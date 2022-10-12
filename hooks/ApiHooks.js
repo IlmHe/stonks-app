@@ -57,8 +57,15 @@ const useMedia = () => {
       throw new Error(error.message);
     }
   };
+  const getMediaFile = async (id) => {
+    try {
+      return await fetchData(apiUrl + 'media/' + id);
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
 
-  return {postMedia, deleteMedia};
+  return {postMedia, deleteMedia, getMediaFile};
 };
 
 const useLogin = () => {
@@ -123,12 +130,7 @@ const useUser = () => {
       headers: {'x-access-token': token},
     };
     try {
-      const data = await fetchData(apiUrl + 'users', options);
-      const users = [];
-      data.forEach((user) => {
-        users.push(user.username);
-      });
-      return users;
+      return await fetchData(apiUrl + 'users', options);
     } catch (e) {
       throw new Error(e.message);
     }

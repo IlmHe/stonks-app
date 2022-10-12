@@ -24,7 +24,11 @@ const Home = ({navigation}) => {
     const token = await AsyncStorage.getItem('userToken');
     try {
       const res = await getAllUsers(token);
-      setUsers(res);
+      const userss = [];
+      for (let i = 0; i < res.length; i++) {
+        userss[i] = res[i].username;
+      }
+      setUsers(userss);
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +63,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     color: '#2b2e3f',
-    maxHeight: '50%',
+    maxHeight: '40%',
   },
   Text: {
     fontSize: 20,
@@ -76,6 +80,7 @@ const styles = StyleSheet.create({
 
 Home.propTypes = {
   navigation: PropTypes.object,
+  route: PropTypes.object,
 };
 
 export default Home;
