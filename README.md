@@ -9,7 +9,7 @@ but it's mainly meant for beginners or people just getting into investing.
 
 ![Login view](https://i.imgur.com/vkNYLO5.png)
 
-Login view: Login and register accounts.
+-Login view: Login and register accounts.
 
 
 ![Register view](https://i.imgur.com/XZSklm3.png)
