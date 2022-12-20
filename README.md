@@ -9,11 +9,11 @@ but it's mainly meant for beginners or people just getting into investing.
 
 ![Login view](https://i.imgur.com/vkNYLO5.png)
 
--Login view: Login and register accounts.
+Login view: Login and register accounts.
 
 
 ![Register view](https://i.imgur.com/XZSklm3.png)
-Register view: Register account.
+- Register view: Register account.
 
 ![Home view](https://i.imgur.com/OpsyIML.png)
 Home view: The main view. Here you see your portfolio value, profit made, list of users, and
